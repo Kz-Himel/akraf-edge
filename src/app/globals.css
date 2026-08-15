@@ -1,47 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-richblack: #00120b;
+  --color-darkgreen: #032221;
+  --color-bangladesh: #03624c;
+  --color-meadow: #2cc295;
+  --color-caribbean: #00df81;
+  --color-flashwhite: #f1f7f6;
+  --color-pine: #06302b;
+  --color-basil: #0b453a;
+  --color-forest: #095544;
+  --color-frog: #17876d;
+  --color-mint: #2fa98c;
+  --color-stone: #707d7d;
+  --color-pistachio: #aacbc4;
+
+  --animate-drift: drift 14s ease-in-out infinite;
+  --animate-pulseGlow: pulseGlow 3.2s ease-in-out infinite;
+
+  @keyframes drift {
+    0%, 100% { transform: translate3d(0,0,0) scale(1); }
+    50% { transform: translate3d(2%, -3%, 0) scale(1.05); }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+}
 
 :root {
-  --font-display: "Axiforma", "Plus Jakarta Sans", -apple-system, "Segoe UI",
-    system-ui, sans-serif;
-  --font-body: "Axiforma", "Inter", -apple-system, "Segoe UI", system-ui,
-    sans-serif;
+  --font-display: "Axiforma", "Plus Jakarta Sans", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-body: "Axiforma", "Inter", -apple-system, "Segoe UI", system-ui, sans-serif;
 }
-
-/*
-  Axiforma is a licensed font (not free/CDN-hostable). Drop your licensed
-  .woff2 files into /public/fonts and uncomment below to activate it —
-  everything above already references "Axiforma" first, so it activates
-  automatically once these files exist. Until then the stack falls back
-  to Plus Jakarta Sans / system fonts, which look close to Axiforma.
-
-@font-face {
-  font-family: "Axiforma";
-  src: url("/fonts/Axiforma-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Axiforma";
-  src: url("/fonts/Axiforma-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Axiforma";
-  src: url("/fonts/Axiforma-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-display: swap;
-}
-*/
 
 * {
   scroll-behavior: smooth;
 }
 
-html,
-body {
+html, body {
   background-color: #00120b;
   color: #f1f7f6;
 }
@@ -56,19 +52,10 @@ body {
   color: #00120b;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #00120b;
-}
-::-webkit-scrollbar-thumb {
-  background: #095544;
-  border-radius: 999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #17876d;
-}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #00120b; }
+::-webkit-scrollbar-thumb { background: #095544; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #17876d; }
 
 .eyebrow {
   font-family: var(--font-body);
@@ -93,10 +80,12 @@ body {
   background-size: 64px 64px;
 }
 
+.bg-edge-radial {
+  background-image: radial-gradient(circle at 50% 0%, rgba(0,223,129,0.18), rgba(0,18,11,0) 60%);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

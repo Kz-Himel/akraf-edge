@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { finalCta } from "../lib/data";
 import AnimatedBackground from "./AnimatedBackground";
 import Reveal from "./Reveal";
