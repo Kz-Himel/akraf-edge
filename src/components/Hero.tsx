@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { hero } from "../lib/data";
-import AnimatedBackground from "./AnimatedBackground";
+import Scene3D from "./Scene3D";
 
 const container = {
   hidden: {},
@@ -24,7 +24,9 @@ export default function Hero() {
     >
       <div className="grid-noise absolute inset-0 opacity-40" />
       <div className="absolute inset-0 bg-edge-radial" />
-      <AnimatedBackground density={70} className="opacity-70" />
+      <div className="absolute inset-0 opacity-90">
+        <Scene3D />
+      </div>
 
       <div className="pointer-events-none absolute -right-40 top-1/4 h-[32rem] w-[32rem] animate-drift rounded-full bg-caribbean/10 blur-[120px]" />
       <div className="pointer-events-none absolute -left-32 bottom-0 h-[26rem] w-[26rem] animate-drift rounded-full bg-forest/20 blur-[110px]" />
@@ -33,7 +35,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 mx-auto max-w-5xl px-6 text-center md:px-10"
+        className="relative z-10 mx-auto max-w-5xl px-6 text-center md:px-10 pointer-events-none"
       >
         <motion.p variants={item} className="eyebrow mb-6">
           {hero.eyebrow}
@@ -55,7 +57,7 @@ export default function Hero() {
 
         <motion.div
           variants={item}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row pointer-events-auto"
         >
           <a
             href="#featured-work"
