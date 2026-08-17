@@ -30,7 +30,6 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-
             <div>
               <p className="mb-4 text-xs uppercase tracking-[0.2em] text-mint">
                 Contact
